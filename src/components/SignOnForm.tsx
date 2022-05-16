@@ -1,32 +1,19 @@
-import { useState } from 'react';
 import logIn from '../assets/log-in.svg';
-import ForgetPasswordForm from './ForgetPasswordForm';
 
-export default function LoginForm() {
+interface SingOnFormProps {
+    formRestartRequested: () => void;
+}
 
-    const [isForget, setIsForget] = useState(false);
-
-    function handleForgetPassword() {
-        setIsForget(true);
-    }
-
-    function handleRestartForm() {
-        setIsForget(false)
-    }
-
-    if (isForget) {
-        return <ForgetPasswordForm formRestartRequested={handleRestartForm} />
-    }
-
+export default function SignOnForm({formRestartRequested}: SingOnFormProps) {
     return(
         <>
             <div className="mb-[27px] flex flex-col gap-1">
                 <span className="text-2xl text-textTitle font-titles font-semibold flex flex-1 gap-3">
                     <img src={logIn} alt="" />
-                    Faça seu login
+                    Cadastre-se
                 </span>
                 <span className="font-body font-medium text-base text-textBase flex">
-                    Entre com as suas informações de cadastro.
+                    Insira as informações para se cadastrar.
                 </span>
             </div>
             <div className="flex flex-col gap-[16px]">
@@ -96,16 +83,10 @@ export default function LoginForm() {
                             placeholder="Digite sua senha" />
                     </label>
                 </div>
-                <div className="flex justify-between">
-                    <div>
-                        <input className="w-[20px] h-[20px] bg-transparent rounded text-primaryColor focus:ring-primaryColor focus:ring-1 border-[#868686]" type="checkbox" name="remember" id="remember" />
-                        <label className="ml-[5px] text-base" htmlFor="remember">Lembre-me</label>
-                    </div>
-                    <div>
-                        <a className="text-primaryColor text-titles text-sm font-semibold" href="#" onClick={handleForgetPassword}>Esqueci minha senha</a>
-                    </div>
+                <div className="flex gap-2">
+                    <button className="h-[51px] w-1/4 bg-textBase rounded text-[#473404] font-titles font-semibold" onClick={formRestartRequested}>Cancelar</button>
+                    <button className="h-[51px] w-3/4 bg-primaryColor rounded text-[#473404] font-titles font-semibold" type="submit">Cadastrar</button>
                 </div>
-                <button className="h-[51px] bg-primaryColor rounded text-[#473404] font-titles font-semibold" type="submit">Entrar</button>
             </div>
         </>
     )

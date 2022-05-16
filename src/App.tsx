@@ -1,7 +1,7 @@
-import LoginPage from "./components/LoginPage";
+import Login from "./pages/Login";
 
 function App() {
-  return <LoginPage />
+  return <Login />
 }
 
 export { App };

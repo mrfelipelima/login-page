@@ -1,3 +1,4 @@
+import { Lock } from 'phosphor-react';
 import logIn from '../assets/log-in.svg';
 
 interface ForgetPasswordFormProps {
@@ -18,10 +19,7 @@ export default function ForgetPasswordForm({formRestartRequested}: ForgetPasswor
                     <span className="font-titles text-base font-medium">E-mail</span>
                     <label className="relative block" htmlFor="email">
                         <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3.33329 3.33331H16.6666C17.5833 3.33331 18.3333 4.08331 18.3333 4.99998V15C18.3333 15.9166 17.5833 16.6666 16.6666 16.6666H3.33329C2.41663 16.6666 1.66663 15.9166 1.66663 15V4.99998C1.66663 4.08331 2.41663 3.33331 3.33329 3.33331Z" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M18.3333 5L9.99996 10.8333L1.66663 5" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                            <Lock />
                         </span>
                         <input
                             type="email"

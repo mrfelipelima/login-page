@@ -53,6 +53,7 @@ The project consists of a login screen, the manual tells us to work with HTML an
 
 :heavy_check_mark: Change form when users click on links to SignUp and Forgot Password;\
 :heavy_check_mark: Connect with Firebase authentication;\
+:heavy_check_mark: Add dialog (modal) to inform users about account status;
 
 ## :rocket: Technologies ##
 
@@ -60,6 +61,7 @@ The following tools were used in this project:
 
 - [React/Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Headless UI](https://headlessui.dev/)
 - [Firebase](https://firebase.google.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
@@ -79,6 +81,8 @@ $ cd login-page
 
 # Install dependencies
 $ yarn
+
+# You need to rename the '.env.example' file to '.env' and insert your firebase credentials before run
 
 # Run the project
 $ yarn dev

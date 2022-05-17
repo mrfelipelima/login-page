@@ -58,6 +58,7 @@ export default function LoginForm() {
                                 focus:invalid:border-[#F33D3D]"
                             name="email"
                             id="email"
+                            required
                             placeholder="Digite seu e-mail" />
                     </label>
                 </div>
@@ -88,6 +89,7 @@ export default function LoginForm() {
                                 focus:invalid:border-[#F33D3D]"
                             name="password"
                             id="password"
+                            required
                             placeholder="Digite sua senha" />
                     </label>
                 </div>
@@ -97,7 +99,7 @@ export default function LoginForm() {
                         <label className="ml-[5px] text-base" htmlFor="remember">Lembre-me</label>
                     </div>
                     <div>
-                        <a className="text-primaryColor text-titles text-sm font-semibold" href="#" onClick={handleForgetPassword}>Esqueci minha senha</a>
+                        <a className="text-primaryColor text-titles text-sm font-semibold cursor-pointer" onClick={handleForgetPassword}>Esqueci minha senha</a>
                     </div>
                 </div>
                 <button className="h-[51px] bg-primaryColor rounded text-[#473404] font-titles font-semibold" type="submit">Entrar</button>

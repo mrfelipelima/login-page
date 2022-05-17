@@ -42,6 +42,7 @@ export default function ForgetPasswordForm({formRestartRequested}: ForgetPasswor
                                 focus:invalid:border-[#F33D3D]"
                             name="email"
                             id="email"
+                            required
                             placeholder="Digite seu e-mail" />
                     </label>
                 </div>

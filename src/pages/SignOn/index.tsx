@@ -1,15 +1,15 @@
 import { useState } from "react";
-import sideImage from "../../assets/side-image.jpg";
+import sideImage from "../../assets/side-image.webp";
 import logo from "../../assets/logo.svg";
-import LoginForm from "../../components/LoginForm";
+import SignOnForm from "../../components/SignOnForm";
 import { useNavigate } from "react-router-dom";
 
-export default function LoginPage() {
+export default function SignOnPage() {
 
     const navigate = useNavigate();
 
     function handleSignUp() {
-        navigate("/signup")
+        navigate("signup")
     }
 
     return(
@@ -19,11 +19,10 @@ export default function LoginPage() {
                 <div className="h-screen px-8 bg-formBackground rounded w-full md:min-w-[505px] lg:m-auto lg:w-2/3 lg:h-2/3 lg:px-28 lg:flex lg:items-center lg:justify-center">
                     <img className="my-8 lg:hidden" src={logo} alt="Logo da camp.in com dois triângulos justapostos e o texto camp.in" />
                     <div className="w-full">
-                        <LoginForm />
-                            <div className="mt-[14px] text-center">
-                                <span>Não tem uma conta? <a className="text-primaryColor cursor-pointer" onClick={handleSignUp}>Registre-se</a></span>
-                            </div>
-                        )}
+                        <SignOnForm />
+                        <div className="mt-[14px] text-center">
+                            <span>Não tem uma conta? <a className="text-primaryColor cursor-pointer" onClick={handleSignUp}>Registre-se</a></span>
+                        </div>
                     </div>                    
                 </div>
             </div>
@@ -34,6 +33,3 @@ export default function LoginPage() {
         </div>
     )
 }
-
-
-// flex flex-col h-screen justify-center

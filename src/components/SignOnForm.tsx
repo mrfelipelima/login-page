@@ -2,45 +2,64 @@ import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import { auth } from "../services/firebaseConfig";
-import logIn from '../assets/log-in.svg';
-import { Lock, EnvelopeSimple, User, Check } from "phosphor-react";
+import { Lock, EnvelopeSimple, User, Check, UserPlus, ArrowLeft } from "phosphor-react";
 import { Loading } from './Loading';
+import { useNavigate } from 'react-router-dom';
 
-interface SingOnFormProps {
-    formRestartRequested: () => void;
-}
+export default function SignOnForm() {
 
-export default function SignOnForm({formRestartRequested}: SingOnFormProps) {
+  const navigate = useNavigate();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [isWaiting, setIsWaiting] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+  function handleReturnLoginPage() {
+    navigate("/");
+  }
 
-    const signOn = async () => {
-        try {
-            setIsWaiting(true);
-            const getUser = await createUserWithEmailAndPassword(auth, email, password);
-            console.log(getUser);
-            setIsWaiting(false);
-            setIsOpen(true);
-            return getUser;
-        } catch(error) {
-            setIsWaiting(false);
-            return error;
-        }
-    }
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isWaiting, setIsWaiting] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [message, setMessage] = useState("");
 
-    function closeModal() {
-        setIsOpen(false);
-        formRestartRequested();
-    }
+  const signOn = async () => {
+
+      if (confirmPassword != password) {
+        setMessage("Senhas não conferem");
+        setIsOpen(true);
+        return
+      }
+
+      try {
+          setIsWaiting(true);
+          const getUser = await createUserWithEmailAndPassword(auth, email, password);
+          console.log(getUser);
+          setIsWaiting(false);
+          setMessage("Você se cadastrou com sucesso!");
+          setIsOpen(true);
+          return getUser;
+      } catch(error) {
+          setIsWaiting(false);
+          setIsOpen(true);
+          return console.log(error);
+      }
+  }
+
+  function closeModal() {
+      setIsOpen(false);
+      setMessage("");
+  }
 
     return(
         <>
+            <div className="mb-[27px] flex-col gap-1">
+                <button className="text-textTitle font-titles font-semibold flex gap-3 items-center" onClick={handleReturnLoginPage}>
+                    <ArrowLeft className="w-5 h-5 text-textBase" weight="bold" />
+                    Voltar
+                </button>
+            </div>
             <div className="mb-[27px] flex flex-col gap-1">
-                <span className="text-2xl text-textTitle font-titles font-semibold flex flex-1 gap-3">
-                    <img src={logIn} alt="" />
+                <span className="text-2xl text-textTitle font-titles font-semibold flex flex-1 gap-3 items-center">
+                    <UserPlus className="w-7 h-7 text-primaryColor" weight="bold" />
                     Cadastre-se
                 </span>
                 <span className="font-body font-medium text-base text-textBase flex">
@@ -112,9 +131,39 @@ export default function SignOnForm({formRestartRequested}: SingOnFormProps) {
                             placeholder="Digite sua senha" />
                     </label>
                 </div>
+                <div id="repeatPassword-group">
+                    <label className="relative block" htmlFor="passwordConfirm">
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <Lock />
+                        </span>
+                        <input
+                            type="password"
+                            className="h-[44px]
+                                block
+                                py-2
+                                pl-9
+                                pr-3
+                                w-full
+                                rounded
+                                bg-transparent
+                                border-[#868686]
+                                placeholder-[#a9afb9]
+                                placeholder:text-sm
+                                focus:outline-none
+                                focus:ring-1
+                                focus:ring-primaryColor
+                                focus:border-primaryColor
+                                focus:invalid:ring-[#F33D3D]
+                                focus:invalid:border-[#F33D3D]"
+                            name="passwordConfirm"
+                            id="passwordConfirm"
+                            onChange={(event) => {setConfirmPassword(event.target.value)}}
+                            required
+                            placeholder="Confirme sua senha" />
+                    </label>
+                </div>
                 <div className="flex gap-2">
-                    <button className="h-[51px] w-1/4 bg-textBase rounded text-[#473404] font-titles font-semibold" onClick={formRestartRequested}>Cancelar</button>
-                    <button className="h-[51px] w-3/4 bg-primaryColor rounded text-[#473404] font-titles font-semibold flex items-center justify-center flex-1" type="submit" onClick={signOn}>{isWaiting ? <Loading /> : "Cadastrar"}</button>
+                    <button className="h-[51px] w-full bg-primaryColor rounded text-[#473404] font-titles font-semibold flex items-center justify-center flex-1" type="submit" onClick={signOn}>{isWaiting ? <Loading /> : "Cadastrar"}</button>
                 </div>
             </div>
 
@@ -152,7 +201,7 @@ export default function SignOnForm({formRestartRequested}: SingOnFormProps) {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Você se cadastrou com sucesso!
+                      {message}
                     </p>
                   </div>
 

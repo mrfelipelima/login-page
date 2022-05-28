@@ -1,5 +1,4 @@
-import { useState } from "react";
-import sideImage from "../../assets/side-image.jpg";
+import sideImage from "../../assets/side-image.webp";
 import logo from "../../assets/logo.svg";
 import LoginForm from "../../components/LoginForm";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +22,6 @@ export default function LoginPage() {
                             <div className="mt-[14px] text-center">
                                 <span>Não tem uma conta? <a className="text-primaryColor cursor-pointer" onClick={handleSignUp}>Registre-se</a></span>
                             </div>
-                        )}
                     </div>                    
                 </div>
             </div>
@@ -34,6 +32,3 @@ export default function LoginPage() {
         </div>
     )
 }
-
-
-// flex flex-col h-screen justify-center

@@ -2,15 +2,9 @@ import { useState } from "react";
 import sideImage from "../../assets/side-image.webp";
 import logo from "../../assets/logo.svg";
 import ForgetPasswordForm from "../../components/ForgetPasswordForm";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ForgetPasswordPage() {
-
-    const navigate = useNavigate();
-
-    function handleSignUp() {
-        navigate("signup")
-    }
 
     return(
         <div className="flex justify-center h-screen font-body">
@@ -21,7 +15,7 @@ export default function ForgetPasswordPage() {
                     <div className="w-full">
                         <ForgetPasswordForm />
                         <div className="mt-[14px] text-center">
-                            <span>Não tem uma conta? <a className="text-primaryColor cursor-pointer" onClick={handleSignUp}>Registre-se</a></span>
+                            <span>Não tem uma conta? <Link className="text-primaryColor" to="/signup">Cadastre-se!</Link></span>
                         </div>
                     </div>                    
                 </div>

@@ -20,9 +20,6 @@ export default function SignOnPage() {
                     <img className="my-8 lg:hidden" src={logo} alt="Logo da camp.in com dois triângulos justapostos e o texto camp.in" />
                     <div className="w-full">
                         <SignOnForm />
-                        <div className="mt-[14px] text-center">
-                            <span>Não tem uma conta? <a className="text-primaryColor cursor-pointer" onClick={handleSignUp}>Registre-se</a></span>
-                        </div>
                     </div>                    
                 </div>
             </div>

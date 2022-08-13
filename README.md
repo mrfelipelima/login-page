@@ -3,7 +3,7 @@
 
   &#xa0;
 
-  <!-- <a href="https://mydigitalcat.netlify.app">Demo</a> -->
+  <a href="https://desafio-marmitech.vercel.app/">Demo</a>
 </div>
 
 <h1 align="center">Login Page</h1>
@@ -46,8 +46,8 @@
 
 ## :dart: About ##
 
-This repository is the answer to the marmitech challenge, proposed by [Jakeline Gracielly](https://github.com/jakeliny), where we should develop a frontend project for [DevChallenge.com.br](https://devchallenge.com.br/) or [Discovery by Rocketseat](https://app.rocketseat.com.br/discover/challenges).
-The project consists of a login screen, the manual tells us to work with HTML and CSS, but I went beyond.
+This repository is the answer to the marmitech challenge, proposed by [Jakeliny Gracielly](https://github.com/jakeliny), where we should develop a frontend project for [DevChallenge.com.br](https://devchallenge.com.br/) or [Discovery by Rocketseat](https://app.rocketseat.com.br/discover/challenges).
+The project consists of a login screen, the manual tells us to work with pure HTML and CSS, but I went beyond.
 
 ## :sparkles: Features ##
 
@@ -68,7 +68,7 @@ The following tools were used in this project:
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), [Node](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/) installed.
 
 ## :checkered_flag: Starting ##
 
